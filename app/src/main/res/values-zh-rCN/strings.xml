@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">分享图片到剪贴板</string>
+    <string name="action_name">复制到剪贴板</string>
+
+    <string name="toast_image_error">无法读取图片</string>
+    <string name="toast_share_image">请分享图片到本应用</string>
+    <string name="toast_copy_success">已复制到剪贴板</string>
+</resources>
