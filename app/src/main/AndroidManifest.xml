@@ -9,9 +9,9 @@
         tools:targetApi="34">
 
         <activity
-            android:name=".MainActivity"
-            android:excludeFromRecents="true"
-            android:exported="true">
+            android:name=".ShareReceiverActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoDisplay">
 
             <intent-filter android:label="@string/action_name">
                 <action android:name="android.intent.action.SEND" />

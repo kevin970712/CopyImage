@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Share Image To Clipboard</string>
+    <string name="app_name">Copy Image To Clipboard</string>
     <string name="action_name">Copy to Clipboard</string>
 
-    <string name="toast_image_error">Unable to open image</string>
-    <string name="toast_need_image">Please share image to this app</string>
+    <string name="toast_image_error">Failed to load image</string>
+    <string name="toast_need_image">Please share an image with this app</string>
     <string name="toast_copy_success">Copied to clipboard</string>
+    <string name="toast_copy_failure">Failed to copy to clipboard</string>
 </resources>
