@@ -1,18 +1,19 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.jetbrains.kotlin.android)
+  alias(libs.plugins.kotlin.compose)
 }
 
 android {
-  namespace = "com.qianxu.copyimagetoclipboard"
+  namespace = "com.qianxu.copyimage"
   compileSdk = 35
 
   defaultConfig {
-    applicationId = "com.qianxu.copyimagetoclipboard"
+    applicationId = "com.qianxu.copyimage"
     minSdk = 29
     targetSdk = 35
-    versionCode = 3
-    versionName = "1.1.0"
+    versionCode = 4
+    versionName = "2.0.0"
   }
 
   buildTypes {
@@ -27,4 +28,16 @@ android {
     targetCompatibility = JavaVersion.VERSION_17
   }
   kotlinOptions { jvmTarget = JavaVersion.VERSION_17.toString() }
+  buildFeatures { compose = true }
+}
+
+dependencies {
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.androidx.activity.compose)
+  implementation(platform(libs.androidx.compose.bom))
+  implementation(libs.androidx.ui)
+  implementation(libs.androidx.ui.graphics)
+  implementation(libs.androidx.material3)
+  implementation(libs.coil.compose)
+  implementation(libs.androidx.appcompat)
 }
