@@ -10,7 +10,7 @@ android {
 
   defaultConfig {
     applicationId = "com.qianxu.copyimage"
-    minSdk = 29
+    minSdk = 30
     targetSdk = 36
     versionCode = 4
     versionName = "2.0.0"
