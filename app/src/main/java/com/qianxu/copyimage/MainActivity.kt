@@ -45,7 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.lifecycleScope
 import coil.compose.rememberAsyncImagePainter
-import com.qianxu.copyimage.ClipboardUtils.writeImageUriToClipboard
+import com.qianxu.copyimage.ClipboardUtil.writeImageUriToClipboard
 import com.qianxu.copyimage.ToastUtil.showToast
 import com.qianxu.copyimage.ui.theme.MainActivityTheme
 import kotlinx.coroutines.launch
@@ -209,7 +209,7 @@ class MainActivity : ComponentActivity() {
     onError: () -> Unit,
   ) {
     lifecycleScope.launch {
-      val uri = MediaStoreUtils.getLatestImageUri(contentResolver)
+      val uri = MediaStoreUtil.getLatestImageUri(contentResolver)
       onResult(uri)
       if (uri != null) {
         onShowDialog()

@@ -2,12 +2,17 @@ package com.qianxu.copyimage
 
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
-import com.qianxu.copyimage.ClipboardUtils.writeImageUriToClipboard
+import android.util.Log
+import com.qianxu.copyimage.ClipboardUtil.writeImageUriToClipboard
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CopyTileService : TileService() {
+  companion object {
+    private const val TAG = "CopyTileService"
+  }
+
   private val mainScope = CoroutineScope(Dispatchers.Main)
   private var isProcessing = false
 
@@ -34,8 +39,10 @@ class CopyTileService : TileService() {
 
     // 在协程中执行获取图片和写入剪贴板的操作
     mainScope.launch {
-      val imageUri = MediaStoreUtils.getLatestImageUri(contentResolver)
+      Log.d(TAG, "查询图片")
+      val imageUri = MediaStoreUtil.getLatestImageUri(contentResolver)
       if (imageUri != null) {
+        Log.d(TAG, "最新图片: $imageUri")
         writeImageUriToClipboard(this@CopyTileService, imageUri)
         updateTileState(true)
       } else {
@@ -44,6 +51,11 @@ class CopyTileService : TileService() {
     }
   }
 
+  /**
+   * 更新磁贴状态
+   *
+   * @param isSuccess 是否成功复制图片
+   */
   private fun updateTileState(isSuccess: Boolean) {
     qsTile?.apply {
       if (isSuccess) {
@@ -58,6 +70,7 @@ class CopyTileService : TileService() {
     }
   }
 
+  /** 重置磁贴状态 */
   private fun resetTileState() {
     qsTile?.apply {
       state = Tile.STATE_INACTIVE

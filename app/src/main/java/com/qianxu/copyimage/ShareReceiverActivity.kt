@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.content.FileProvider.getUriForFile
 import androidx.core.content.IntentCompat
-import com.qianxu.copyimage.ClipboardUtils.writeImageUriToClipboard
+import com.qianxu.copyimage.ClipboardUtil.writeImageUriToClipboard
 import com.qianxu.copyimage.ToastUtil.showToast
 import java.io.File
 
