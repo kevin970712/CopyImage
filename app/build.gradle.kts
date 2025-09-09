@@ -6,14 +6,14 @@ plugins {
 
 android {
   namespace = "com.qianxu.copyimage"
-  compileSdk = 35
+  compileSdk = 36
 
   defaultConfig {
     applicationId = "com.qianxu.copyimage"
-    minSdk = 29
-    targetSdk = 35
-    versionCode = 4
-    versionName = "2.0.0"
+    minSdk = 30
+    targetSdk = 36
+    versionCode = 5
+    versionName = "2.1.0"
   }
 
   buildTypes {
@@ -27,7 +27,11 @@ android {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
   }
-  kotlinOptions { jvmTarget = JavaVersion.VERSION_17.toString() }
+  kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+    }
+  }
   buildFeatures { compose = true }
 }
 

@@ -8,25 +8,25 @@ import android.net.Uri
 import android.util.Log
 
 /** 剪贴板工具类 */
-object ClipboardUtils {
-  private const val TAG = "ClipboardUtils"
+object ClipboardUtil {
+  private const val TAG = "ClipboardUtil"
 
   /**
-   * 写入图片 Uri 到剪贴板
+   * 写入图片 URI 到剪贴板
    *
    * @param context 上下文对象
-   * @param uri 图片 Uri
+   * @param uri 图片 URI
    * @return 操作结果
    */
   fun writeImageUriToClipboard(context: Context, uri: Uri): Boolean {
     return try {
       val clipboardManager = context.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-      val clip = ClipData.newUri(context.contentResolver, "Image", uri)
-      clipboardManager.setPrimaryClip(clip)
-      Log.d(TAG, "写入图片 Uri 到剪贴板成功: $uri")
+      val data = ClipData.newUri(context.contentResolver, "Image", uri)
+      clipboardManager.setPrimaryClip(data)
+      Log.d(TAG, "写入图片 URI 到剪贴板成功: $uri")
       true
     } catch (e: Exception) {
-      Log.e(TAG, "写入图片 Uri 到剪贴板失败", e)
+      Log.e(TAG, "写入图片 URI 到剪贴板失败", e)
       false
     }
   }
